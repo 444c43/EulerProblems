@@ -7,8 +7,8 @@
     <ProjectGuid>{F3E6024E-C24A-40AF-9A46-DFCDC64F276F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>OutputService</RootNamespace>
-    <AssemblyName>OutputService</AssemblyName>
+    <RootNamespace>OutputLibrary</RootNamespace>
+    <AssemblyName>OutputLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

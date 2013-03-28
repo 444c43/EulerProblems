@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OutputService
+namespace OutputLibrary
 {
-    public class Output
+    public class OutputService
     {
     }
 }

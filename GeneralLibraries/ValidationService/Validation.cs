@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValidationService
+namespace ValidationLibrary
 {
-    public class Validation
+    public class ValidationService
     {
         public static int ValidateAsInteger(string inputtext)
         {
@@ -16,7 +16,7 @@ namespace ValidationService
                 return result;
             }
 
-
+            throw new System.ApplicationException("error");
         }
     }
 }
