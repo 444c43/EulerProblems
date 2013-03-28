@@ -8,6 +8,10 @@ namespace ProjectEuler.EulerProblems
 {
     public abstract class EulerProblem
     {
+        public virtual void EulerMain()
+        {
+        }
+
         public virtual int IterativeSolution()
         {
             return 0;

@@ -1,19 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using InputLibrary;
+using OutputLibrary;
+using ValidationLibrary;
 
 namespace ProjectEuler.EulerProblems
 {
     public class Euler01 : EulerProblem
     {
+        public override void EulerMain()
+        {
+        }
+
         public override int IterativeSolution()
         {
+            int[] inputvalues = new int[2];
             int SumTotal = 0;
-            for (int x = 0; x <= 999; x++)
+            for (int x = 0; x <= inputvalues[0]; x++)
             {
-                SumTotal += CheckMultiple(x);
+                SumTotal += CheckMultiple(x, inputvalues[1], inputvalues[3]);
             }
             return SumTotal;
         }
@@ -35,14 +39,14 @@ namespace ProjectEuler.EulerProblems
             return Result;
         }
 
-        private static int CheckMultiple(int iteration)
+        private static int CheckMultiple(int iteration, int multipleone, int multipletwo)
         {
             int ReturnValue = 0;
-            if (iteration % 3 == 0 || iteration % 5 == 0)
+            if (iteration % multipleone == 0 || iteration % multipletwo == 0)
             {
                 ReturnValue += iteration;
             }
-            else if (iteration % 15 == 0)
+            else if (iteration % (multipleone + multipletwo) == 0)
             {
                 ReturnValue -= iteration;
             }

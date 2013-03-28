@@ -8,6 +8,10 @@ namespace ProjectEuler.EulerProblems
 {
     public class Euler02 : EulerProblem
     {
+        public override void EulerMain()
+        {
+        }
+
         public override int IterativeSolution()
         {
             int SumTotal = 0;

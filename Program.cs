@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using InputLibrary;
+using OutputLibrary;
+using ValidationLibrary;
 
 namespace ProjectEulerLibraries
 {
@@ -10,6 +9,7 @@ namespace ProjectEulerLibraries
     {
         static void Main(string[] args)
         {
+            
         }
     }
 }

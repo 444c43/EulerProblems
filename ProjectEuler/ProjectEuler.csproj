@@ -32,15 +32,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="EulerProblems\Euler01.cs" />
     <Compile Include="EulerProblems\Euler02.cs" />
     <Compile Include="EulerProblems\EulerProblem.cs" />
@@ -49,6 +40,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GeneralLibraries\InputService\InputService.csproj">
+      <Project>{7d875afb-ae63-42d2-94df-d9d87ffb8848}</Project>
+      <Name>InputService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GeneralLibraries\OutputService\OutputService.csproj">
+      <Project>{f3e6024e-c24a-40af-9a46-dfcdc64f276f}</Project>
+      <Name>OutputService</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GeneralLibraries\ValidationService\ValidationService.csproj">
+      <Project>{fcdc76af-6357-4009-90ee-ec158693c186}</Project>
+      <Name>ValidationService</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
