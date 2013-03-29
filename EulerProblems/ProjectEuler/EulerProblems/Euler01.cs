@@ -9,30 +9,30 @@ namespace EulerProblems
     {
         public static void EulerMain()
         {
-            string StringRange = SetInstructions();
-            int IntRange = int.Parse(StringRange);
+            string UserInput = QueryUser();
+            int MaxRange = int.Parse(UserInput);
 
             int[] IntResults = new int[]{
-                CalculateIterative(IntRange),
-                CalculateEfficient(IntRange)};
+                CalculateIterative(MaxRange),
+                CalculateEfficient(MaxRange)};
 
             OutputService.ConvertToString(IntResults);
         }
 
-        private static string SetInstructions()
+        private static string QueryUser()
         {
-            string[] data = new string[]{
+            string[] EulerInstructions = new string[]{
                 "Let's solve Euler # 1!",
                 "\n", "\n",
                 "Enter a maximum range value: "};
             
-            return ValidationService.ValidateUserInput(data);
+            return ValidationService.ValidateUserInput(EulerInstructions);
         }
 
-        private static int CalculateIterative(int MaxRange)
+        private static int CalculateIterative(int maxRange)
         {
             int SumTotal = 0;
-            for (int x = 0; x <= MaxRange; x++)
+            for (int x = 0; x <= maxRange; x++)
             {
                 if (IsNumberMultiple(x, 3, 5))
                 {
@@ -42,26 +42,26 @@ namespace EulerProblems
             return SumTotal;
         }
 
-        private static int CalculateEfficient(int MaxRange)
+        private static int CalculateEfficient(int maxRange)
         {
             //efficient, does not use iterations
-            int sumofthrees = CalculateSumOfMultiples(MaxRange, 3);
-            int sumoffives = CalculateSumOfMultiples(MaxRange, 5);
-            int sumoffifteens = CalculateSumOfMultiples(MaxRange, 15);
-            return (sumofthrees + sumoffives) - sumoffifteens;
+            int SumOfThrees = CalculateSumOfMultiples(maxRange, 3);
+            int SumOfFive = CalculateSumOfMultiples(maxRange, 5);
+            int SumOfFifteens = CalculateSumOfMultiples(maxRange, 3 * 5);
+            return (SumOfThrees + SumOfFive) - SumOfFifteens;
         }
 
-        private static int CalculateSumOfMultiples(int RangeEnd, int Multiple)
+        private static int CalculateSumOfMultiples(int maxRange, int multiple)
         {
             //calculation for EfficientSolution
             int Result;
-            Result = (int)(float)((RangeEnd / Multiple) / 2.0F * (RangeEnd - (RangeEnd % Multiple) + Multiple));
+            Result = (int)(float)((maxRange / multiple) / 2.0F * (maxRange - (maxRange % multiple) + multiple));
             return Result;
         }
 
-        private static bool IsNumberMultiple(int number, int multipleone, int multipletwo)
+        private static bool IsNumberMultiple(int number, int multipleOne, int multipleTwo)
         {
-            if (number % multipleone == 0 || number % multipletwo == 0)
+            if (number % multipleOne == 0 || number % multipleTwo == 0)
             {
                 return true;
             }

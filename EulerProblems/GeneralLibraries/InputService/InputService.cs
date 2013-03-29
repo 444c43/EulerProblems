@@ -6,9 +6,9 @@ namespace InputLibrary
     {
         public static string GetUserInput(string[] prompt)
         {
-            foreach (string element in prompt)
+            foreach (string Element in prompt)
             {
-                Console.Write(element);
+                Console.Write(Element);
             }
 
             return Console.ReadLine();

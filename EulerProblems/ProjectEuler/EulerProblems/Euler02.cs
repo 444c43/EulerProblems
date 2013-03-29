@@ -9,32 +9,32 @@ namespace EulerProblems
     {
         public static void EulerMain()
         {
-            string StringRange = SetInstructions();
-            int IntRange = int.Parse(StringRange);
+            string UserInput = QueryUser();
+            int MaxRange = int.Parse(UserInput);
 
             int[] IntResults = new int[]{
-                CalculateIterative(IntRange),
-                CalculateEfficient(IntRange)};
+                CalculateIterative(MaxRange),
+                CalculateEfficient(MaxRange)};
 
             OutputService.ConvertToString(IntResults);
         }
 
-        private static string SetInstructions()
+        private static string QueryUser()
         {
-            string[] data = new string[]{
+            string[] EulerInstructions = new string[]{
                 "Let's solve Euler # 2!",
                 "\n", "\n",
                 "Enter a maximum range value: "};
 
-            return ValidationService.ValidateUserInput(data);
+            return ValidationService.ValidateUserInput(EulerInstructions);
         }
 
-        private static int CalculateIterative(int MaxRange)
+        private static int CalculateIterative(int maxRange)
         {
             int SumTotal = 0;
             int[] FibSet = new int[2] { 1, 2 };
             int Temp;
-            while (FibSet[1] < MaxRange)
+            while (FibSet[1] < maxRange)
             {
                 if (IsNumberEven(FibSet[1]))
                 {
@@ -47,15 +47,15 @@ namespace EulerProblems
             return SumTotal;
         }
 
-        private static int CalculateEfficient(int MaxRange)
+        private static int CalculateEfficient(int maxRange)
         {
 
             return 0;
         }
 
-        private static bool IsNumberEven(int SequenceValue)
+        private static bool IsNumberEven(int fibOne)
         {
-            if (SequenceValue % 2 == 0)
+            if (fibOne % 2 == 0)
             {
                 return true;
             }

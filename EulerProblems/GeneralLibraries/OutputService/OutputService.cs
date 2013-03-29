@@ -6,20 +6,20 @@ namespace OutputLibrary
     {
         public static void ConvertToString(int[] intResults)
         {
-            string[] stringResults = new string[] {
+            string[] StringResults = new string[] {
                 "Iterative Result: ",
                 intResults[0].ToString(),
                 "Efficient Result: ",
                 intResults[1].ToString()};
 
-            DisplayOutput(stringResults);
+            DisplayOutput(StringResults);
         }
 
-        private static void DisplayOutput(string[] message)
+        private static void DisplayOutput(string[] resultOutput)
         {
-            foreach (string element in message)
+            foreach (string Element in resultOutput)
             {
-                Console.WriteLine(element);
+                Console.WriteLine(Element);
             }
             Console.Write("Press any key to continue...");
             Console.ReadLine();
