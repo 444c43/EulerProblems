@@ -9,17 +9,17 @@ namespace EulerProblems
     {
         public static void EulerMain()
         {
-            string StringRange = Instructions();
+            string StringRange = SetInstructions();
             int IntRange = int.Parse(StringRange);
 
             int[] IntResults = new int[]{
-                IterativeSolution(IntRange),
-                EfficientSolution(IntRange)};
+                CalculateIterative(IntRange),
+                CalculateEfficient(IntRange)};
 
             OutputService.ConvertToString(IntResults);
         }
 
-        private static string Instructions()
+        private static string SetInstructions()
         {
             string[] data = new string[]{
                 "Let's solve Euler # 1!",
@@ -29,7 +29,7 @@ namespace EulerProblems
             return ValidationService.ValidateUserInput(data);
         }
 
-        private static int IterativeSolution(int MaxRange)
+        private static int CalculateIterative(int MaxRange)
         {
             int SumTotal = 0;
             for (int x = 0; x <= MaxRange; x++)
@@ -42,16 +42,16 @@ namespace EulerProblems
             return SumTotal;
         }
 
-        private static int EfficientSolution(int MaxRange)
+        private static int CalculateEfficient(int MaxRange)
         {
             //efficient, does not use iterations
-            int sumofthrees = SumOfMultiplesCalc(MaxRange, 3);
-            int sumoffives = SumOfMultiplesCalc(MaxRange, 5);
-            int sumoffifteens = SumOfMultiplesCalc(MaxRange, 15);
+            int sumofthrees = CalculateSumOfMultiples(MaxRange, 3);
+            int sumoffives = CalculateSumOfMultiples(MaxRange, 5);
+            int sumoffifteens = CalculateSumOfMultiples(MaxRange, 15);
             return (sumofthrees + sumoffives) - sumoffifteens;
         }
 
-        private static int SumOfMultiplesCalc(int RangeEnd, int Multiple)
+        private static int CalculateSumOfMultiples(int RangeEnd, int Multiple)
         {
             //calculation for EfficientSolution
             int Result;

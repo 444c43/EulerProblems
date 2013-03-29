@@ -4,7 +4,7 @@ namespace InputLibrary
 {
     public class InputService
     {
-        public static string UserInput(string[] prompt)
+        public static string GetUserInput(string[] prompt)
         {
             foreach (string element in prompt)
             {
@@ -14,7 +14,7 @@ namespace InputLibrary
             return Console.ReadLine();
         }
 
-        public static void ErrorMessage()
+        public static void DisplayErrorMessage()
         {
             Console.Clear();
             Console.Write("Try again!" + "\n" + "Press any key...");

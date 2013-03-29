@@ -9,17 +9,17 @@ namespace EulerProblems
     {
         public static void EulerMain()
         {
-            string StringRange = Instructions();
+            string StringRange = SetInstructions();
             int IntRange = int.Parse(StringRange);
 
             int[] IntResults = new int[]{
-                IterativeSolution(IntRange),
-                EfficientSolution(IntRange)};
+                CalculateIterative(IntRange),
+                CalculateEfficient(IntRange)};
 
             OutputService.ConvertToString(IntResults);
         }
 
-        private static string Instructions()
+        private static string SetInstructions()
         {
             string[] data = new string[]{
                 "Let's solve Euler # 2!",
@@ -29,14 +29,14 @@ namespace EulerProblems
             return ValidationService.ValidateUserInput(data);
         }
 
-        private static int IterativeSolution(int MaxRange)
+        private static int CalculateIterative(int MaxRange)
         {
             int SumTotal = 0;
             int[] FibSet = new int[2] { 1, 2 };
             int Temp;
             while (FibSet[1] < MaxRange)
             {
-                if (CheckEven(FibSet[1]))
+                if (IsNumberEven(FibSet[1]))
                 {
                     SumTotal += FibSet[1];
                 }
@@ -47,13 +47,13 @@ namespace EulerProblems
             return SumTotal;
         }
 
-        private static int EfficientSolution(int MaxRange)
+        private static int CalculateEfficient(int MaxRange)
         {
 
             return 0;
         }
 
-        private static bool CheckEven(int SequenceValue)
+        private static bool IsNumberEven(int SequenceValue)
         {
             if (SequenceValue % 2 == 0)
             {

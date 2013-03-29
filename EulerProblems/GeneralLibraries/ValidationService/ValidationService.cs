@@ -7,11 +7,11 @@ namespace ValidationLibrary
     {
         public static string ValidateUserInput(string[] data)
         {
-            string returnvalue = InputService.UserInput(data);
+            string returnvalue = InputService.GetUserInput(data);
             while (ValidationService.ValidateAsInteger(returnvalue) == false)
             {
-                InputService.ErrorMessage();
-                returnvalue = InputService.UserInput(data);
+                InputService.DisplayErrorMessage();
+                returnvalue = InputService.GetUserInput(data);
             }
             return returnvalue;
         }
