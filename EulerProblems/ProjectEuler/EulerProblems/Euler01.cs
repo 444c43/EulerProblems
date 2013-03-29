@@ -3,31 +3,51 @@ using InputLibrary;
 using OutputLibrary;
 using ValidationLibrary;
 
-namespace ProjectEuler.EulerProblems
+namespace EulerProblems
 {
-    public class Euler01 : EulerProblem
+    public class Euler01
     {
-        public override void EulerMain()
+        public static void EulerMain()
         {
+            string StringRange = Instructions();
+            int IntRange = int.Parse(StringRange);
+
+            int[] IntResults = new int[]{
+                IterativeSolution(IntRange),
+                EfficientSolution(IntRange)};
+
+            OutputService.ConvertToString(IntResults);
         }
 
-        public override int IterativeSolution()
+        private static string Instructions()
         {
-            int[] inputvalues = new int[2];
+            string[] data = new string[]{
+                "Let's solve Euler # 1!",
+                "\n", "\n",
+                "Enter a maximum range value: "};
+            
+            return ValidationService.ValidateUserInput(data);
+        }
+
+        private static int IterativeSolution(int MaxRange)
+        {
             int SumTotal = 0;
-            for (int x = 0; x <= inputvalues[0]; x++)
+            for (int x = 0; x <= MaxRange; x++)
             {
-                SumTotal += CheckMultiple(x, inputvalues[1], inputvalues[3]);
+                if (IsNumberMultiple(x, 3, 5))
+                {
+                    SumTotal += x;
+                }
             }
             return SumTotal;
         }
 
-        public override int EfficientSolution()
+        private static int EfficientSolution(int MaxRange)
         {
             //efficient, does not use iterations
-            int sumofthrees = SumOfMultiplesCalc(999, 3);
-            int sumoffives = SumOfMultiplesCalc(999, 5);
-            int sumoffifteens = SumOfMultiplesCalc(999, 15);
+            int sumofthrees = SumOfMultiplesCalc(MaxRange, 3);
+            int sumoffives = SumOfMultiplesCalc(MaxRange, 5);
+            int sumoffifteens = SumOfMultiplesCalc(MaxRange, 15);
             return (sumofthrees + sumoffives) - sumoffifteens;
         }
 
@@ -39,18 +59,13 @@ namespace ProjectEuler.EulerProblems
             return Result;
         }
 
-        private static int CheckMultiple(int iteration, int multipleone, int multipletwo)
+        private static bool IsNumberMultiple(int number, int multipleone, int multipletwo)
         {
-            int ReturnValue = 0;
-            if (iteration % multipleone == 0 || iteration % multipletwo == 0)
+            if (number % multipleone == 0 || number % multipletwo == 0)
             {
-                ReturnValue += iteration;
+                return true;
             }
-            else if (iteration % (multipleone + multipletwo) == 0)
-            {
-                ReturnValue -= iteration;
-            }
-            return ReturnValue;
+            return false;
         }
     }
 }

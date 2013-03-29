@@ -1,23 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using InputLibrary;
+using OutputLibrary;
+using ValidationLibrary;
 
-namespace ProjectEuler.EulerProblems
+namespace EulerProblems
 {
-    public class Euler02 : EulerProblem
+    public class Euler02
     {
-        public override void EulerMain()
+        public static void EulerMain()
         {
+            string StringRange = Instructions();
+            int IntRange = int.Parse(StringRange);
+
+            int[] IntResults = new int[]{
+                IterativeSolution(IntRange),
+                EfficientSolution(IntRange)};
+
+            OutputService.ConvertToString(IntResults);
         }
 
-        public override int IterativeSolution()
+        private static string Instructions()
+        {
+            string[] data = new string[]{
+                "Let's solve Euler # 2!",
+                "\n", "\n",
+                "Enter a maximum range value: "};
+
+            return ValidationService.ValidateUserInput(data);
+        }
+
+        private static int IterativeSolution(int MaxRange)
         {
             int SumTotal = 0;
             int[] FibSet = new int[2] { 1, 2 };
             int Temp;
-            while (FibSet[1] < 4000001)
+            while (FibSet[1] < MaxRange)
             {
                 if (CheckEven(FibSet[1]))
                 {
@@ -30,7 +47,7 @@ namespace ProjectEuler.EulerProblems
             return SumTotal;
         }
 
-        public override int EfficientSolution()
+        private static int EfficientSolution(int MaxRange)
         {
 
             return 0;

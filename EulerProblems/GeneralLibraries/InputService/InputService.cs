@@ -1,18 +1,25 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace InputLibrary
 {
     public class InputService
     {
-        public static string UserInput(string prompt)
+        public static string UserInput(string[] prompt)
         {
-            Console.WriteLine(prompt);
+            foreach (string element in prompt)
+            {
+                Console.Write(element);
+            }
 
             return Console.ReadLine();
+        }
+
+        public static void ErrorMessage()
+        {
+            Console.Clear();
+            Console.Write("Try again!" + "\n" + "Press any key...");
+            Console.ReadLine();
+            Console.Clear();
         }
     }
 }

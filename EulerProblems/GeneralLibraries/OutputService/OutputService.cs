@@ -1,16 +1,28 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace OutputLibrary
 {
     public class OutputService
     {
-        public static void DisplayOutput(string message, int result)
+        public static void ConvertToString(int[] intResults)
         {
-            Console.WriteLine("{0}, {1}", message, result);
+            string[] stringResults = new string[] {
+                "Iterative Result: ",
+                intResults[0].ToString(),
+                "Efficient Result: ",
+                intResults[1].ToString()};
+
+            DisplayOutput(stringResults);
+        }
+
+        private static void DisplayOutput(string[] message)
+        {
+            foreach (string element in message)
+            {
+                Console.WriteLine(element);
+            }
+            Console.Write("Press any key to continue...");
+            Console.ReadLine();
         }
     }
 }

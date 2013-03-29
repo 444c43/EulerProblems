@@ -1,22 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using InputLibrary;
 
 namespace ValidationLibrary
 {
-    public class ValidationService
+    public abstract class ValidationService
     {
-        public static int ValidateAsInteger(string inputtext)
+        public static string ValidateUserInput(string[] data)
+        {
+            string returnvalue = InputService.UserInput(data);
+            while (ValidationService.ValidateAsInteger(returnvalue) == false)
+            {
+                InputService.ErrorMessage();
+                returnvalue = InputService.UserInput(data);
+            }
+            return returnvalue;
+        }
+
+        private static bool ValidateAsInteger(string inputtext)
         {
             int result = 0;
-            if (int.TryParse(inputtext, out result))
-            {
-                return result;
-            }
+            return int.TryParse(inputtext, out result);
+        }
 
-            throw new System.ApplicationException("error");
+        private static bool ValidateAsLong(string inputtext)
+        {
+            long result = 0;
+            return long.TryParse(inputtext, out result);
+        }
+
+        private static bool ValidateAsDouble(string inputtext)
+        {
+            double result = 0.0;
+            return double.TryParse(inputtext, out result);
         }
     }
 }

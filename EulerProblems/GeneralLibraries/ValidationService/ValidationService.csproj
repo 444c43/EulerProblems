@@ -33,6 +33,12 @@
     <Compile Include="ValidationService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\InputService\InputService.csproj">
+      <Project>{7d875afb-ae63-42d2-94df-d9d87ffb8848}</Project>
+      <Name>InputService</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
