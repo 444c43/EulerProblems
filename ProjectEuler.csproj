@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="EulerProblem.cs" />
     <Compile Include="EulerProblems\Euler01.cs" />
     <Compile Include="EulerProblems\Euler02.cs" />
     <Compile Include="EulerProblems\Euler03.cs" />
