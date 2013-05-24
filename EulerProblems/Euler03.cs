@@ -7,21 +7,13 @@ using ValidationLibrary;
 
 namespace EulerProblems
 {
-    public class Euler03
+    public class Euler03 : EulerProblem
     {
-        private int[] Results { get; set; }
-
-        private string Title { get; set; }
-        private List<string> Description { get; set; }
-        private string[] EulerInstructions { get; set; }
-
-        public Euler03()
+        public Euler03():base()
         {
-            Results = new int[] { 0, 0 };
-
-            Title = "Largest Prime Factor";
-
-            Description = new List<string>{
+            base.Name = "Euler # 3";
+            base.Title = "Largest Prime Factor";
+            base.Description = new List<string>{
                 "The prime factors of 13195 are 5, 7, 13 and 29.",
                 "",
                 "What is the largest prime factor of the number 600851475143 ?",
@@ -30,32 +22,12 @@ namespace EulerProblems
 
         public void EulerMain()
         {
-            DisplayInstructions();
-            string UserInput = QueryUser();
-            int MaxRange = int.Parse(UserInput);
+            base.EulerMain();
 
             int[] IntResults = new int[]{
-                (int) CalculateIterative(MaxRange),0};
+                (int) CalculateIterative(base.InputValue),0};
 
             OutputService.ConvertToString(IntResults);
-        }
-
-        private void DisplayInstructions()
-        {
-            Description.ForEach(delegate(String item)
-            {
-                Console.WriteLine(item);
-            });
-        }
-
-        private string QueryUser()
-        {
-            string[] EulerInstructions = new string[]{
-                "Let's solve Euler # 3!",
-                Environment.NewLine, Environment.NewLine,
-                "Enter number to find the largest prime factor: "};
-
-            return ValidationService.ValidateUserInput(EulerInstructions);
         }
 
         public static long CalculateIterative(long end_range)

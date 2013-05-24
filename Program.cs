@@ -16,10 +16,8 @@ namespace EulerProblems
 
             Problem01.EulerMain();
             ClearConsole();
-            
             Problem02.EulerMain();
             ClearConsole();
-
             Problem03.EulerMain();
         }
 

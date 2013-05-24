@@ -7,24 +7,33 @@ using System.Collections.Generic;
 
 namespace EulerProblems
 {
-    public abstract class EulerProblem
+    public class EulerProblem
     {
-        private int[] Results { get; set; }
+        protected string Name { get; set; }
 
-        private string Title { get; set; }
-        private List<string> Description { get; set; }
-        private string[] EulerInstructions { get; set; }
+        protected int[] Results { get; set; }
 
-        EulerProblem()
+        protected int InputValue { get; set; }
+
+        protected string Title { get; set; }
+        protected List<string> Description { get; set; }
+        protected string[] EulerInstructions { get; set; }
+
+        public EulerProblem()
         {
             Results = new int[]{};
         }
 
-        public void EulerMain() { }
+        public virtual void EulerMain()
+        {
+            DisplayInstructions();
+            string UserInput = this.QueryUser();
+            InputValue = int.Parse(UserInput);
+        }
 
         private void DisplayInstructions()
         {
-            Description.ForEach(delegate(String item)
+            this.Description.ForEach(delegate(String item)
             {
                 Console.WriteLine(item);
             });
@@ -33,7 +42,7 @@ namespace EulerProblems
         private string QueryUser()
         {
             string[] EulerInstructions = new string[]{
-                "Let's solve Euler # 1!",
+                "Let's solve " + Name,
                 "\n", "\n",
                 "Enter a maximum range value: "};
 
