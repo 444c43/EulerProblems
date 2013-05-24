@@ -1,3 +1,9 @@
-# DevFoundry Repository
+# Project Euler
 
-A collection of work from [DevFoundry](http://developerfoundry.com/)
+A C# solution to solving problems at [Project Euler](http://projecteuler.net/)
+
+*Currently solved problems:*
+
+
+
+
