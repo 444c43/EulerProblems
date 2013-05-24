@@ -10,9 +10,9 @@ namespace EulerProblems
     {
         static void Main(string[] args)
         {
-            Euler01.EulerMain();
-            Console.Clear();
-            Euler02.EulerMain();
+            Euler01 Problem01 = new Euler01();
+
+            Problem01.EulerMain();
         }
     }
 }

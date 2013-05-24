@@ -7,10 +7,8 @@ namespace OutputLibrary
         public static void ConvertToString(int[] intResults)
         {
             string[] StringResults = new string[] {
-                "Iterative Result: ",
-                intResults[0].ToString(),
-                "Efficient Result: ",
-                intResults[1].ToString()};
+                "Iterative Result: " + intResults[0].ToString(),
+                "Efficient Result: " + intResults[1].ToString()};
 
             DisplayOutput(StringResults);
         }
@@ -21,8 +19,7 @@ namespace OutputLibrary
             {
                 Console.WriteLine(Element);
             }
-            Console.Write("Press any key to continue...");
-            Console.ReadLine();
+            Console.WriteLine("");
         }
     }
 }

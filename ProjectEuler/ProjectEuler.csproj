@@ -34,7 +34,6 @@
   <ItemGroup>
     <Compile Include="EulerProblems\Euler01.cs" />
     <Compile Include="EulerProblems\Euler02.cs" />
-    <Compile Include="EulerProbs.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

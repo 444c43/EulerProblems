@@ -7,39 +7,49 @@ using ValidationLibrary;
 
 namespace EulerProblems
 {
-    public class Euler01 : EulerProbs
+    public class Euler01
     {
+        private int[] Results { get; set; }
+
+        private string Title { get; set; }
+        private List<string> Description { get; set; }
+        private string[] EulerInstructions { get; set; }
+
         public Euler01()
         {
-            int Answer=0;
-            string Title = "Multiples of 3 and 5";
+            Results = new int[] { 0, 0 };
+
+            Title = "Multiples of 3 and 5";
             
-            List<string> Description = new List<string>{
+            Description = new List<string>{
                 "If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.",
                 "The sum of these multiples is 23.",
                 "Find the sum of all the multiples of 3 or 5 below 1000."
             };
-
-            string[] EulerInstructions = new string[] {
-                "Let's solve Euler # 1!",
-                "\n", "\n",
-                "Enter a maximum range value: "
-            };
         }
 
-        public static void EulerMain()
+        public void EulerMain()
         {
+            DisplayInstructions();
             string UserInput = QueryUser();
             int MaxRange = int.Parse(UserInput);
 
             int[] IntResults = new int[]{
                 CalculateIterative(MaxRange),
-                CalculateEfficient(MaxRange)};
+                CalculateEfficient(MaxRange - 1)};
 
             OutputService.ConvertToString(IntResults);
         }
 
-        private static string QueryUser()
+        private void DisplayInstructions()
+        {
+            Description.ForEach(delegate(String item)
+                {
+                    Console.WriteLine(item);
+                });
+        }
+
+        private string QueryUser()
         {
             string[] EulerInstructions = new string[]{
                 "Let's solve Euler # 1!",
@@ -49,10 +59,10 @@ namespace EulerProblems
             return ValidationService.ValidateUserInput(EulerInstructions);
         }
 
-        private static int CalculateIterative(int maxRange)
+        private int CalculateIterative(int maxRange)
         {
             int SumTotal = 0;
-            for (int x = 0; x <= maxRange; x++)
+            for (int x = 0; x < maxRange; x++)
             {
                 if (IsNumberMultiple(x, 3, 5))
                 {
@@ -62,7 +72,7 @@ namespace EulerProblems
             return SumTotal;
         }
 
-        private static int CalculateEfficient(int maxRange)
+        private int CalculateEfficient(int maxRange)
         {
             //efficient, does not use iterations
             int SumOfThrees = CalculateSumOfMultiples(maxRange, 3);
@@ -71,7 +81,7 @@ namespace EulerProblems
             return (SumOfThrees + SumOfFive) - SumOfFifteens;
         }
 
-        private static int CalculateSumOfMultiples(int maxRange, int multiple)
+        private int CalculateSumOfMultiples(int maxRange, int multiple)
         {
             //calculation for EfficientSolution
             int Result;
@@ -79,7 +89,7 @@ namespace EulerProblems
             return Result;
         }
 
-        private static bool IsNumberMultiple(int number, int multipleOne, int multipleTwo)
+        private bool IsNumberMultiple(int number, int multipleOne, int multipleTwo)
         {
             if (number % multipleOne == 0 || number % multipleTwo == 0)
             {
