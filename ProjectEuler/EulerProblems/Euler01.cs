@@ -1,12 +1,32 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 using InputLibrary;
 using OutputLibrary;
 using ValidationLibrary;
 
 namespace EulerProblems
 {
-    public class Euler01
+    public class Euler01 : EulerProbs
     {
+        public Euler01()
+        {
+            int Answer=0;
+            string Title = "Multiples of 3 and 5";
+            
+            List<string> Description = new List<string>{
+                "If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.",
+                "The sum of these multiples is 23.",
+                "Find the sum of all the multiples of 3 or 5 below 1000."
+            };
+
+            string[] EulerInstructions = new string[] {
+                "Let's solve Euler # 1!",
+                "\n", "\n",
+                "Enter a maximum range value: "
+            };
+        }
+
         public static void EulerMain()
         {
             string UserInput = QueryUser();

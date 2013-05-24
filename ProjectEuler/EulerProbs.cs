@@ -14,7 +14,7 @@ namespace EulerProblems
         List<string> Description { get; private set; }
         string[] EulerInstructions { get; private set; }
 
-        private void QueryUser();
+        private static string QueryUser();
 
         private int CalculateIterative();
 
