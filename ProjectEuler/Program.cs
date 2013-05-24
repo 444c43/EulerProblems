@@ -12,10 +12,15 @@ namespace EulerProblems
         {
             Euler01 Problem01 = new Euler01();
             Euler02 Problem02 = new Euler02();
+            Euler03 Problem03 = new Euler03();
 
             Problem01.EulerMain();
             ClearConsole();
+            
             Problem02.EulerMain();
+            ClearConsole();
+
+            Problem03.EulerMain();
         }
 
         static void ClearConsole()
