@@ -20,7 +20,7 @@ namespace EulerProblems
             };
         }
 
-        public void EulerMain()
+        public override void EulerMain()
         {
             base.EulerMain();
 
@@ -30,36 +30,31 @@ namespace EulerProblems
             OutputService.ConvertToString(IntResults);
         }
 
-        public static long CalculateIterative(long end_range)
+        private long CalculateIterative(long number)
         {
-            //naive solution; runs iterations, though stops once largest prime is found
-            long Count = 0;
-            long ProductVal = 1;
-            long x = 0;
-            long y = 0;
-            for (x = 2; x <= end_range; ++x)
+            long LargestPrime = 0;
+            for (long i = number; i >= 2; --i)
             {
-                Count = 0;
-                if (end_range % x == 0)
+                if (number % i == 0 && IsPrime(i))
                 {
-                    for (y = 2; y < x; ++y)
-                    {
-                        if (x % y == 0)
-                        {
-                            Count = Count + 1;
-                        }
-                    }
-                    if (Count == 0)
-                    {
-                        ProductVal = ProductVal * x;
-                        if (ProductVal == end_range)
-                        {
-                            break;
-                        }
-                    }
+                    LargestPrime = i;
+                    break;
                 }
             }
-            return x;
+            return LargestPrime;
+        }
+
+        public bool IsPrime(long value)
+        {
+            if (value == 1) return false;
+            if (value == 2) return true;
+
+            for (int i = 2; i < value; ++i)
+            {
+                if (value % i == 0) return false;
+            }
+
+            return true;
         }
     }
 }
