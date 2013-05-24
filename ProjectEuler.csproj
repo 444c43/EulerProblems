@@ -42,21 +42,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GeneralLibraries\InputService\InputService.csproj">
+    <Reference Include="System" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="GeneralLibraries\InputService\InputService.csproj">
       <Project>{7d875afb-ae63-42d2-94df-d9d87ffb8848}</Project>
       <Name>InputService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GeneralLibraries\OutputService\OutputService.csproj">
+    <ProjectReference Include="GeneralLibraries\OutputService\OutputService.csproj">
       <Project>{f3e6024e-c24a-40af-9a46-dfcdc64f276f}</Project>
       <Name>OutputService</Name>
     </ProjectReference>
-    <ProjectReference Include="..\GeneralLibraries\ValidationService\ValidationService.csproj">
+    <ProjectReference Include="GeneralLibraries\ValidationService\ValidationService.csproj">
       <Project>{fcdc76af-6357-4009-90ee-ec158693c186}</Project>
       <Name>ValidationService</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Reference Include="System" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

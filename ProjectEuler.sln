@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Express 2012 for Windows Desktop
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectEuler", "ProjectEuler.csproj", "{800F9851-B639-4598-9746-93941F839D64}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputService", "..\GeneralLibraries\InputService\InputService.csproj", "{7D875AFB-AE63-42D2-94DF-D9D87FFB8848}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "InputService", "GeneralLibraries\InputService\InputService.csproj", "{7D875AFB-AE63-42D2-94DF-D9D87FFB8848}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutputService", "..\GeneralLibraries\OutputService\OutputService.csproj", "{F3E6024E-C24A-40AF-9A46-DFCDC64F276F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OutputService", "GeneralLibraries\OutputService\OutputService.csproj", "{F3E6024E-C24A-40AF-9A46-DFCDC64F276F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationService", "..\GeneralLibraries\ValidationService\ValidationService.csproj", "{FCDC76AF-6357-4009-90EE-EC158693C186}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationService", "GeneralLibraries\ValidationService\ValidationService.csproj", "{FCDC76AF-6357-4009-90EE-EC158693C186}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
