@@ -47,7 +47,7 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="GeneralLibraries\InputService\Services.csproj">
+    <ProjectReference Include="GeneralLibraries\Services\Services.csproj">
       <Project>{7d875afb-ae63-42d2-94df-d9d87ffb8848}</Project>
       <Name>Services</Name>
     </ProjectReference>
