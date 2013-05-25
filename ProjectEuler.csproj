@@ -32,10 +32,11 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="EulerProblem.cs" />
+    <Compile Include="EulerProblems\EulerProblem.cs" />
     <Compile Include="EulerProblems\Euler01.cs" />
     <Compile Include="EulerProblems\Euler02.cs" />
     <Compile Include="EulerProblems\Euler03.cs" />
+    <Compile Include="EulerStart.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -46,17 +47,13 @@
     <Reference Include="System" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="GeneralLibraries\InputService\InputService.csproj">
+    <ProjectReference Include="GeneralLibraries\InputService\Services.csproj">
       <Project>{7d875afb-ae63-42d2-94df-d9d87ffb8848}</Project>
-      <Name>InputService</Name>
+      <Name>Services</Name>
     </ProjectReference>
-    <ProjectReference Include="GeneralLibraries\OutputService\OutputService.csproj">
-      <Project>{f3e6024e-c24a-40af-9a46-dfcdc64f276f}</Project>
-      <Name>OutputService</Name>
-    </ProjectReference>
-    <ProjectReference Include="GeneralLibraries\ValidationService\ValidationService.csproj">
-      <Project>{fcdc76af-6357-4009-90ee-ec158693c186}</Project>
-      <Name>ValidationService</Name>
+    <ProjectReference Include="GeneralLibraries\StringValidations\Extensions.csproj">
+      <Project>{1f26b246-81c4-492f-ab28-431b0301ecfe}</Project>
+      <Name>Extensions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

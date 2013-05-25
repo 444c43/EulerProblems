@@ -1,9 +1,8 @@
 ﻿using System;
+using Extensions;
 using System.Collections;
 using System.Collections.Generic;
-using InputLibrary;
-using OutputLibrary;
-using ValidationLibrary;
+using Services;
 
 namespace EulerProblems
 {
@@ -13,22 +12,52 @@ namespace EulerProblems
         {
             base.Name = "Euler # 1";
             base.Title = "Multiples of 3 and 5";
-            base.Description = new List<string>{
+            base.ProblemDescription = new List<string>{
                 "If we list all the natural numbers below 10 that are multiples of 3 or 5, we get 3, 5, 6 and 9.",
+                "",
                 "The sum of these multiples is 23.",
+                "",
                 "Find the sum of all the multiples of 3 or 5 below 1000."
             };
+            base.EulerInstructions = new List<string>{
+                "Let's solve " + Name,
+                "\n", "\n",
+                "Enter a maximum range value: "};
         }
 
         public override void EulerMain()
         {
             base.EulerMain();
 
+            string UserInput = ValidateInput();
+
+            int[] IntResults = CalculateValues(UserInput);
+
+            Output.DisplayArray(IntResults);
+            Output.PauseForUser("Press any key to continue...");
+        }
+
+        private int[] CalculateValues(string UserInput)
+        {
+            InputValue = int.Parse(UserInput);
+
             int[] IntResults = new int[]{
                 CalculateIterative(base.InputValue),
                 CalculateEfficient(base.InputValue - 1)};
+            return IntResults;
+        }
 
-            OutputService.ConvertToString(IntResults);
+        private string ValidateInput()
+        {
+            string UserInput = Input.GetUserInput();
+
+            while (!UserInput.IsParsableInt())
+            {
+                UserInput = Input.GetUserInput();
+                base.EulerMain();
+
+            }
+            return UserInput;
         }
 
         private int CalculateIterative(int value)
