@@ -8,9 +8,6 @@ namespace EulerProblems
     {
         static void Main(string[] args)
         {
-            Euler03 Problem03 = new Euler03();
-
-            Problem03.EulerMain();
         }
     }
 }
