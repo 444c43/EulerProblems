@@ -30,20 +30,21 @@ namespace EulerProblems
 
             string UserInput = ValidateInput();
 
-            long[] IntResults = CalculateValues(UserInput);
+            int[] IntResults = CalculateValues(UserInput);
 
             Output.DisplayArray(IntResults);
             Output.PauseForUser("Press any key to continue...");
         }
 
-        private long[] CalculateValues(string UserInput)
+        private int[] CalculateValues(string UserInput)
         {
             //NEEDS FIXED, int NEEDS BE long
+            
             InputValue = int.Parse(UserInput);
 
-            long[] IntResults = new long[]{
+            int[] IntResults = new int[]{
                 CalculateIterative(base.InputValue),
-                CalculateEfficient(base.InputValue - 1)};
+                CalculateEfficient(base.InputValue)};
             return IntResults;
         }
 
@@ -60,10 +61,10 @@ namespace EulerProblems
             return UserInput;
         }
 
-        private long CalculateIterative(long number)
+        private int CalculateIterative(int number)
         {
-            long LargestPrime = 0;
-            for (long i = number; i >= 2; --i)
+            int LargestPrime = 0;
+            for (int i = number; i >= 2; --i)
             {
                 if (number % i == 0 && IsPrime(i))
                 {
@@ -74,9 +75,30 @@ namespace EulerProblems
             return LargestPrime;
         }
 
-        private long CalculateEfficient(long number)
+        private int CalculateEfficient(int number)
         {
+            int iteration = 2;
+            List<int> list = new List<int>() { 1 };
+
+            while (!ProductOfList(list, number))
+            {
+                if (number % iteration == 0)
+                {
+                    list.Add(iteration);
+                }
+                iteration += 1;
+            }
             return 0;
+        }
+
+        private static bool ProductOfList(List<int> list, int number)
+        {
+            int product = 1;
+            foreach (int member in list)
+            {
+                product *= member;
+            }
+            return (product == number);
         }
 
         public bool IsPrime(long value)

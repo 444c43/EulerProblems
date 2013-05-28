@@ -75,19 +75,18 @@ namespace EulerProblems
 
         private int CalculateEfficient(int maxRange)
         {
-            //efficient, does not use iterations
-            int SumOfThrees = CalculateSumOfMultiples(maxRange, 3);
-            int SumOfFive = CalculateSumOfMultiples(maxRange, 5);
-            int SumOfFifteens = CalculateSumOfMultiples(maxRange, 3 * 5);
-            return (SumOfThrees + SumOfFive) - SumOfFifteens;
+            //efficient, uses arithmetic progression
+            int SumOfThree = SumMultiples(maxRange, 3);
+            int SumOfFive = SumMultiples(maxRange, 5);
+            int SumOfFifteen = SumMultiples(maxRange, 3 * 5);
+            return (SumOfThree + SumOfFive) - SumOfFifteen;
         }
 
-        private int CalculateSumOfMultiples(int maxRange, int multiple)
+        private int SumMultiples(int maxRange, int multiple)
         {
-            //calculation for EfficientSolution
-            int Result;
-            Result = (int)(float)((maxRange / multiple) / 2.0F * (maxRange - (maxRange % multiple) + multiple));
-            return Result;
+            int term_count = maxRange / multiple;
+            int last_term = term_count * multiple;
+            return (term_count * (multiple + last_term)) / 2;
         }
 
         private bool IsNumberMultiple(int number, int multipleOne, int multipleTwo)

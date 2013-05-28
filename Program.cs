@@ -1,14 +1,16 @@
 ﻿using System;
+using System.Collections.Generic;
 using Services;
 
 namespace EulerProblems
 {
-    public class Program
+    class Program
     {
-     static void Main(string[] args)
+        static void Main(string[] args)
         {
-            EulerStart NewEuler = new EulerStart();
-            NewEuler.Start();
+            Euler03 Problem03 = new Euler03();
+
+            Problem03.EulerMain();
         }
     }
 }
