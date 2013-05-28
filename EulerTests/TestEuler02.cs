@@ -4,8 +4,13 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EulerTests
 {
     [TestClass]
-    public class TestEuler01
+    public class TestEuler02
     {
+        #region behavior tests
+
+        #endregion
+
+        #region answer tests
         [TestMethod]
         public void TestIterative()
         {
@@ -15,5 +20,6 @@ namespace EulerTests
         public void TestEfficient()
         {
         }
+        #endregion
     }
 }
