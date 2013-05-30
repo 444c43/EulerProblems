@@ -3,48 +3,6 @@
     public static class StringValidations
     {
         /// <summary>
-        /// returns if string is null
-        /// </summary>
-        /// <param name="stringvalue"></param>
-        /// <returns></returns>
-        public static bool IsNull(this string stringvalue)
-        {
-            return stringvalue == null;
-        }
-
-        /// <summary>
-        /// returns if string length is greater than specified value
-        /// </summary>
-        /// <param name="stringvalue"></param>
-        /// <param name="length"></param>
-        /// <returns></returns>
-        public static bool IsLengthGreaterThan(this string stringvalue, int length)
-        {
-            return stringvalue.Length > length;
-        }
-
-        /// <summary>
-        /// returns if length is lesser than specified value
-        /// </summary>
-        /// <param name="stringvalue"></param>
-        /// <param name="length"></param>
-        /// <returns></returns>
-        public static bool IsLengthLesserThan(this string stringvalue, int length)
-        {
-            return stringvalue.Length < length;
-        }
-
-        /// <summary>
-        /// returns if first character of string is a space
-        /// </summary>
-        /// <param name="stringvalue"></param>
-        /// <returns></returns>
-        public static bool IsSpaceFirstChr(this string stringvalue)
-        {
-            return stringvalue.StartsWith(" ");
-        }
-
-        /// <summary>
         /// returns if string can parse to byte
         /// </summary>
         /// <param name="stringvalue"></param>

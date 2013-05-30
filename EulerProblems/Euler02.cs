@@ -6,7 +6,7 @@ using Services;
 
 namespace EulerProblems
 {
-    public class Euler02 : EulerProblem
+    public class Euler02<T> : EulerProblem<T>
     {
         public Euler02()
             : base()
@@ -32,35 +32,20 @@ namespace EulerProblems
         {
             base.EulerMain();
 
-            string UserInput = ValidateInput();
-
-            int[] IntResults = CalculateValues(UserInput);
+            int[] IntResults = CalculateValues(ValidateInput());
 
             Output.DisplayArray(IntResults);
             Output.PauseForUser("Press any key to continue...");
         }
 
-        private int[] CalculateValues(string UserInput)
+        private int[] CalculateValues(T UserInput)
         {
-            InputValue = int.Parse(UserInput);
+            int inputValue = (int)Convert.ChangeType(UserInput, typeof(int));
 
             int[] IntResults = new int[]{
-                CalculateIterative(base.InputValue),
-                CalculateEfficient(base.InputValue - 1)};
+                CalculateIterative(inputValue),
+                CalculateEfficient(inputValue - 1)};
             return IntResults;
-        }
-
-        private string ValidateInput()
-        {
-            string UserInput = Input.GetUserInput();
-
-            while (!UserInput.IsParsableInt())
-            {
-                UserInput = Input.GetUserInput();
-                base.EulerMain();
-
-            }
-            return UserInput;
         }
 
         private int CalculateIterative(int maxRange)

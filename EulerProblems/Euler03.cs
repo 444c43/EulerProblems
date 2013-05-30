@@ -6,7 +6,7 @@ using Services;
 
 namespace EulerProblems
 {
-    public class Euler03 : EulerProblem
+    public class Euler03<T> : EulerProblem<T>
     {
         public Euler03()
             : base()
@@ -28,43 +28,26 @@ namespace EulerProblems
         {
             base.EulerMain();
 
-            string UserInput = ValidateInput();
-
-            int[] IntResults = CalculateValues(UserInput);
+            long[] IntResults = CalculateValues(ValidateInput());
 
             Output.DisplayArray(IntResults);
             Output.PauseForUser("Press any key to continue...");
         }
 
-        private int[] CalculateValues(string UserInput)
+        private long[] CalculateValues(T UserInput)
         {
-            //NEEDS FIXED, int NEEDS BE long
-            
-            InputValue = int.Parse(UserInput);
+            long inputValue = (long)Convert.ChangeType(UserInput, typeof(long));
 
-            int[] IntResults = new int[]{
-                CalculateIterative(base.InputValue),
-                CalculateEfficient(base.InputValue)};
+            long[] IntResults = new long[]{
+                CalculateIterative(inputValue),
+                CalculateEfficient(inputValue)};
             return IntResults;
         }
 
-        private string ValidateInput()
+        private long CalculateIterative(long number)
         {
-            string UserInput = Input.GetUserInput();
-
-            while (!UserInput.IsParsableLong())
-            {
-                UserInput = Input.GetUserInput();
-                base.EulerMain();
-
-            }
-            return UserInput;
-        }
-
-        private int CalculateIterative(int number)
-        {
-            int LargestPrime = 0;
-            for (int i = number; i >= 2; --i)
+            long LargestPrime = 0;
+            for (long i = number; i >= 2; --i)
             {
                 if (number % i == 0 && IsPrime(i))
                 {
@@ -75,10 +58,10 @@ namespace EulerProblems
             return LargestPrime;
         }
 
-        private int CalculateEfficient(int number)
+        private long CalculateEfficient(long number)
         {
             int iteration = 2;
-            List<int> list = new List<int>() { 1 };
+            List<long> list = new List<long>() { 1 };
 
             while (!ProductOfList(list, number))
             {
@@ -91,7 +74,7 @@ namespace EulerProblems
             return 0;
         }
 
-        private static bool ProductOfList(List<int> list, int number)
+        private static bool ProductOfList(List<long> list, long number)
         {
             int product = 1;
             foreach (int member in list)

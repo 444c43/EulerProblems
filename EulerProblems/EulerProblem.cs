@@ -6,14 +6,14 @@ using System.Collections.Generic;
 
 namespace EulerProblems
 {
-    public class EulerProblem
+    public class EulerProblem<T>
     {
         #region fields
         protected string Name { get; set; }
         protected string Title { get; set; }
 
-        protected int[] Results { get; set; }
-        protected int InputValue { get; set; }
+        public T[] Results { get; set; }
+        public T InputValue { get; set; }
 
         protected List<string> ProblemDescription { get; set; }
         protected List<string> EulerInstructions { get; set; }
@@ -25,7 +25,7 @@ namespace EulerProblems
 
         public EulerProblem()
         {
-            Results = new int[]{};
+            Results = new T[]{};
             Output = new Output();
             Input = new Input();
             Validation = new Validation();
@@ -34,6 +34,26 @@ namespace EulerProblems
         public virtual void EulerMain()
         {
             DisplayProblemAndInstructions();
+        }
+
+        public T ValidateInput()
+        {
+            string UserInput = Input.GetUserInput();
+            object result = null;
+            try
+            {
+                if (InputValue.GetType() == typeof(int))
+                    result = int.Parse(UserInput);
+                if (InputValue.GetType() == typeof(long))
+                    result = long.Parse(UserInput);
+            }
+            catch (Exception ex) 
+            {
+                EulerMain();
+                ValidateInput();
+            }
+
+            return (T)result;
         }
 
         #region Private Methods
