@@ -38,25 +38,32 @@ namespace EulerProblems
 
         public T ValidateInput()
         {
-            string UserInput = Input.GetUserInput();
+            object r = null;
+            while ((r = GetResult(Input.GetUserInput())) == null)
+            {
+                DisplayProblemAndInstructions();
+            }
+
+            return (T)r;
+        }
+
+
+
+        #region Private Methods
+        private object GetResult(string input)
+        {
             object result = null;
             try
             {
                 if (InputValue.GetType() == typeof(int))
-                    result = int.Parse(UserInput);
+                    result = int.Parse(input);
                 if (InputValue.GetType() == typeof(long))
-                    result = long.Parse(UserInput);
+                    result = long.Parse(input);
             }
-            catch (Exception ex) 
-            {
-                EulerMain();
-                ValidateInput();
-            }
-
-            return (T)result;
+            catch (Exception ex) { }
+            
+            return result;
         }
-
-        #region Private Methods
         private void DisplayProblemAndInstructions()
         {
             Output.ClearConsole();
